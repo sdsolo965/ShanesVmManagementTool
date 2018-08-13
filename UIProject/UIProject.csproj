@@ -82,5 +82,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VmRepository.Azure\VmRepository.Azure.csproj">
+      <Project>{527a4b2c-e413-424d-8dc0-da513d5bbd1a}</Project>
+      <Name>VmRepository.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VmRepository.Interface\VmRepository.Interface.csproj">
+      <Project>{782fe904-6e91-435a-987b-a33f54ef8655}</Project>
+      <Name>VmRepository.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

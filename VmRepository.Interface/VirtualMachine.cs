@@ -10,5 +10,10 @@
         public string SecurityGroupName { get; set; }
         public string PublicIpAddressName { get; set; }
         public int[] OpenPorts { get; set; }
+
+        public VirtualMachine(string name)
+        {
+            Name = name;
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace VmRepository.Interface
 {
     public interface IVmRepository
     {
+        void ConnectToCloudService();
+
         IEnumerable<VirtualMachine> GetVirtualMachines();
 
         VirtualMachine GetVirtualMachine();
