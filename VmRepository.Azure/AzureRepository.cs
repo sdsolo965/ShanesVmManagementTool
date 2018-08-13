@@ -15,7 +15,6 @@ namespace VmRepository.Azure
     public class AzureRepository : IVmRepository
     {
         Runspace runspace = RunspaceFactory.CreateRunspace();
-        private string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         public AzureRepository()
         {
@@ -24,7 +23,7 @@ namespace VmRepository.Azure
 
         public void AddVirtualMachine(VirtualMachine virtualMachine)
         {
-            string scriptLocation = Path.Combine(executableLocation, "CreateAzureVMv1.ps1");
+            string scriptLocation = Path.Combine(Environment.CurrentDirectory, @"Scripts\CreateAzureVMv1.ps1");
 
             Pipeline pipeline = runspace.CreatePipeline();
             Command getCred = new Command("Get-Credential");
@@ -39,7 +38,7 @@ namespace VmRepository.Azure
 
         public void ConnectToCloudService()
         {
-            string scriptLocation = Path.Combine(executableLocation, "ConnectAzureAccount.ps1");
+            string scriptLocation = Path.Combine(Environment.CurrentDirectory, @"Scripts\ConnectAzureAccount.ps1");
 
             /*
             This is what causes an exception to be throw due to AzureRm.Profile not being properly loaded.
